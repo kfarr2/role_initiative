@@ -1,0 +1,3 @@
+*.pyc
+role_initiative/settings/local.py
+.env

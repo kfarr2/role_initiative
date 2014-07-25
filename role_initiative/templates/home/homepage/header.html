@@ -1,0 +1,23 @@
+{% block heading %}
+<div class="nav navbar-inverse">
+	<div class="container-fluid">
+		<div class="nav navbar-left" style="margin-bottom:5px">
+			<a href={% url 'home' %}><table><tr>
+				<td><img src="static/images/2d6_glow_extra_narrow_small1.png" alt="" type="image/png"/></td>
+				<td><span style="color:#ffffff"><h1>Role Initiative</h1></span></td>
+			</tr></table></a>
+		</div>
+		<div class="nav navbar-right" style="margin-top:20px">
+			<table><tr>
+				<td>
+					<div class="btn-group">
+						<a href = 'login/' class="btn btn-primary">Login</a>
+						<button class="btn btn-primary">New User</button>
+						<button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
+					</div>
+				</td>
+			</tr></table>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="well will-inverse" >
+	<h2>Quick Roll</h2>
+	<p><strong>Need dice?</strong> Don't got dice? We got dice.</p>
+	<form method="get" action="roll_dice">
+		<table class="table table-striped">
+		<tr>
+			{{ form.as_p }}	
+		</tr>
+		<tr>
+			<td style='background-color: #EEEEEE'>
+			<button type ="submit" class="btn btn-primary" name='roll' style='margin: 10px'>{{ button_text.button_text }}</button>
+				<span class=''>
+					<div class='well well-lg' style='background: #DDDDDD;'>
+						{% if total %}<h2>You rolled: <strong>{{ total }}</strong> </h2>
+						{% else %}<h2></h2>{% endif %}
+					</div>
+				</span>
+			</td>
+		</tr>
+		</table>
+	</form>	
+</div>

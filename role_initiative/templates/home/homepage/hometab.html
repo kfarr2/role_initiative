@@ -1,0 +1,26 @@
+{% block hometab %}
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<td>
+				<div class="panel panel-primary">
+					<div class="panel panel-heading"><div class="page-header"><h3>Your simple online RPG utility kit</h3></div></div>
+					<div class="panel-body">
+						<table class="table table-striped">
+							<tr>
+								<td>
+									{% block quickroll%}{% include "home/homepage/quickroll.html" %}{% endblock %}							
+								</td>
+								<td>
+									{% block featuredgames %}{% include "home/homepage/featuredgames.html" %}{% endblock %}														</td>
+							</tr>	
+						</table>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>
+{% endblock %}

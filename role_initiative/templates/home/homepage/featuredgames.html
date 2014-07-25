@@ -1,0 +1,11 @@
+{% block featuredgames %}
+<div class="well">
+	<h3><p>Featured Games</p></h3>
+	<ul class="list-group">
+	{% if game_list %}
+		{% for game in game_list %}
+			<a href="#"><li class="list-group-item">{{ game.game_name }}</li><a>
+		{% endfor %}
+	{% endif %}												</ul>
+</div>
+{% endblock %}

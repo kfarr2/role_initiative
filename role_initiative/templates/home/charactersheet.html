@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Character Sheet Creator</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+	<!--Top navbar-->
+	<div class="nav navbar-inverse">
+		<div class="container-fluid">
+			<div class="nav navbar-left" style="margin-top: 7px">
+				<span style="color:#ffffff"><h2>Character Sheet Creator</h2></span>
+			</div>
+		</div>
+	</div>
+	<!--Body-->
+	<div class="container">
+		<ul class="nav nav-pills" role="tablist">
+			<li class="active" class="tabs"><a href="#home">Home</a></li>
+			<li class="active" class="tabs"><a href="#games">Games</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane active" id="home">
+				check
+			</div>
+			<div class="tab-pane active" id="games">
+				check 1, 2
+			</div>
+		</div>
+
+	</div>
+
+<script>
+$(document).ready(function(e){
+	$('.tabs').click(function(e){
+		e.preventDefault()
+		$(this).parent().find(".tab-content").slideToggle();
+	})
+});
+</script>
+
+
+</body>
+</html>
