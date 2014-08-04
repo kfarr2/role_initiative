@@ -6,13 +6,10 @@ from django.conf import settings
 class DiceModel(models.Model):
 	SIDES_CHOICES = (
 		(4,'4'),
-		(5,'5'),
 		(6,'6'),
 		(8,'8'),
 		(10,'10'),
 		(12,'12'),
-		(14,'14'),
-		(16,'16'),
 		(20,'20'),
 		(100,'100'),
 	)

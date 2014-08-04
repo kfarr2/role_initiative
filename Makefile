@@ -1,4 +1,9 @@
-#!/bin/bash
+.PHONY: clean run 
 
-"python manage.py runserver 10.0.0.34:8000"
+# run the server
+run:
+	./manage.py runserver 0.0.0.0:8000
+
+clean:
+	find -iname "*.pyc" -delete
  

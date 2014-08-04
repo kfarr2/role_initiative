@@ -24,7 +24,6 @@ from django.core.urlresolvers import reverse
 from django.contrib.messages import constants as messages
 import requests
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Default context processors
 import django.conf.global_settings as DEFAULT_SETTINGS
@@ -37,16 +36,15 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['10.0.0.34']
 
-ADMINS = (
-	('konstantin','konstantinfarrell@gmail.com'),
-)
-MANAGERS = ADMINS
+
+AUTH_USER_MODEL = 'users.User'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 here = lambda *path: os.path.normpath(os.path.join(os.path.dirname(__file__), *path))
 ROOT = lambda *path: here("../../", *path)
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # Application definition
@@ -59,9 +57,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pytz',
+    'south',
     'role_initiative.home',
-    'role_initiative.login',
     'role_initiative.featured_games',
+    'role_initiative.users',
+    'role_initiative.files',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -110,10 +110,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, "static"),
-	os.path.join(BASE_DIR, "static/images/")
+	here("../", "static"),
 )
+STATIC_ROOT = ROOT("static")
 
+MEDIA_ROOT = ROOT("media")
+MEDIA_URL = '/media/'
+
+TMP_ROOT = ROOT("tmp")
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',

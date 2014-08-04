@@ -1,0 +1,35 @@
+from base import ALLOWED_HOSTS
+
+# Database
+# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '',
+	'HOST': '',
+	'USER': '',
+	'PASSWORD': '',
+	'PORT': '',
+    }
+}
+
+ALLOWED_HOSTS = ALLOWED_HOSTS + [".nip.io"]
+
+HOSTNAME = '10.0.34.nip.io:8000'
+
+SESSION_COOKIE_DOMAIN = '.nip.io'
+
+ADMINS = (
+
+)
+MANAGERS = ADMINS
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+TEMPLATE_DEBUG = True
+
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '{{ secret_key }}'
+
