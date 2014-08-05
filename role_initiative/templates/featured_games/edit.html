@@ -1,12 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
+<script src="{{ STATIC_URL }}js/resumable.js"></script>
+<script>var CHUNK_SIZE = {{ chunk_size }};</script>
+<script src="{{ STATIC_URL }}js/upload.js"></script>
+
 <div class="container">
 	{% if form %}
-		<form method="post">
-			{{ form.as_p }}	
-			<input type="submit" class="btn btn-primary" value="Submit" />
+		<form method="post" id="form" enctype="multipart/form-data">
+			{% csrf_token %}
+			<p>Game Name {{ form.name }}</p>	
+			<p>Type {{ form.game_type }}</p>	
+			<p>Short Description {{ form.description }}</p>	
+			<p>Upload a manual<input type="file" name="file" id="file"/></p>
+			<p id="files"></p>
+			<input type="submit" class="btn btn-primary" value="Submit" id="submit" />
 		</form>
+
+		<div class="progress" style="display:none">
+			<div class="progress-bar" role="progressbar" style="width: 0%;" id="progress-bar"></div>
+		</div>
 	{% endif %}
 </div>
 {% endblock %}

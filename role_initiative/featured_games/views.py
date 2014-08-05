@@ -2,6 +2,7 @@ import os, sys
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.conf import settings
 from models import GameInfoModel
 from forms import GameForm
 
@@ -37,6 +38,7 @@ def _edit(request, game_id):
 		form = GameForm(instance=game)
 
 	return render(request, "featured_games/edit.html", {
+		"chunk_size": settings.CHUNK_SIZE,
 		"form": form,	
 	})
 	

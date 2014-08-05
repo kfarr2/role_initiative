@@ -46,6 +46,11 @@ here = lambda *path: os.path.normpath(os.path.join(os.path.dirname(__file__), *p
 ROOT = lambda *path: here("../../", *path)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# Files
+MAX_UPLOAD_SIZE = 50 * 2**20
+CHUNK_SIZE = 1 * 2**20
+ITEMS_PER_PAGE = 10
+
 
 # Application definition
 
