@@ -20,6 +20,10 @@ span {
 	color: #ffffff;
 }
 
+.table-striped {
+	color: #000000;
+}
+
 form {
 	color: #000000;	
 	width: 100%;
@@ -28,4 +32,8 @@ form {
 #dice-roll {
 	position: relative;
 	width: 100%;
+}
+
+#user-welcome {
+	color: #ffffff;	
 }

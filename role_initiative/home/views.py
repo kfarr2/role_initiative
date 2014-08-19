@@ -11,9 +11,14 @@ def home(request):
 	if request.method == 'GET':
 		form = DiceForm(request.GET)
 		if form.is_valid():
-			total = rolling(form.cleaned_data['dice'], form.cleaned_data['sides'])
+			rolled = rolling(form.cleaned_data['dice'], form.cleaned_data['sides'])
+			total = 0
+			for x in range(len(rolled)):
+				total += rolled[x]
+
 			return render(request, 'home/home.html',{
 				'form' : form,
+				'rolled': rolled,
 				'total': total,
 				'button_text': button_text,
 			})
@@ -25,9 +30,9 @@ def home(request):
 	})
 
 def rolling(num_dice, num_sides):
-	roll_total = 0 
+	rolled = [None]*num_dice
 	for x in range(0, num_dice):
 		this_roll = random.randint(1, num_sides) 
-		roll_total = roll_total + this_roll
-	return roll_total
+		rolled[x] = this_roll
+	return rolled
 

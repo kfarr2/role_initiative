@@ -23,11 +23,11 @@
 				{% if user.is_authenticated %}
 					<td><span>
 						<ul class='nav navbar-nav'>
-							<li><a href={% url 'featured_games-create' %} type="button">Games</a></li>
-							<li><a href='#' type="button">Foo</a></li>
+							<li><a href="{% url 'users-home' user.pk %}" type="button">Home</a></li>
+							<li><a href="{% url 'games-create' %}" type="button">Games</a></li>
 							<li><a href='#' type="button">Bar</a></li>
 						</ul>
-					</span></td>	
+					</span></td>
 				{% endif %}
 			</tr></table>
 		</div>
@@ -46,6 +46,9 @@
 				</td>
 			</tr></table>
 		</div>
+		{% if user.is_authenticated %}
+		<span class="pull-right" style="margin-top: 30px; margin-right: 15px;">  What's up, {{ user.first_name|capfirst }}?  </span>
+		{% endif %}
 	</div>
 </div>
 {% endblock %}

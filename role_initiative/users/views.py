@@ -6,7 +6,9 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.utils.http import is_safe_url
+from role_initiative.games.models import Game
 from forms import LoginForm, UserForm
+from models import User
 
 # Create your views here.
 def games(request):
@@ -14,6 +16,18 @@ def games(request):
 	Default game view
 	"""
 	pass
+
+def home(request, user_id):
+	"""
+
+	"""
+	user = User.objects.get(user_id=user_id)
+	games = Game.objects.filter(created_by=request.user)
+
+	return render(request, 'users/home.html', {
+		"user": user,
+		"games": games,
+	})
 
 def login(request):
 	"""

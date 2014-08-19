@@ -14,12 +14,17 @@
 				<table class="table table-condensed">
 					<tr>
 						<td>
-							<p>Roll {{ form.dice }}</p>
-							<p>D    {{ form.sides }}</p>	
+							<p><h4>Roll</h4></p><p>{{ form.dice }}</p>
+							<p><h4>D</h4></p><p>{{ form.sides }}</p>	
 						</td>
 						<td>
+						<h3>You rolled: </h3>
+						{% for roll in rolled %}
+							<strong>{{ roll }}</strong>, 
+						{% endfor %}
+
 						{% if total %}
-							<h3>You rolled: <strong>{{ total }}</strong> </h3>
+							<h3>Total: <strong>{{ total }}</strong> </h3>
 						{% else %}
 							<h3>Roll!</h3>
 						{% endif %}
@@ -39,7 +44,7 @@
 		<ul class="list-group">
 		{% if game_list %}
 			{% for game in game_list %}
-				<a href="#"><li class="list-group-item">{{ game.game_name }}</li></a>
+				<a href="#"><li class="list-group-item">{{ game.name }}</li></a>
 			{% endfor %}
 		{% endif %}												
 		</ul>

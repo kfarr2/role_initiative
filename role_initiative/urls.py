@@ -21,6 +21,7 @@ urlpatterns = patterns('',
 	# users
 	url(r'^login/?$', users.login, name="users-login"),
 	url(r'^new_user/?$', users.create, name="users-create"),
+	url(r'^home/(?P<user_id>\d+)/?$', users.home, name="users-home"),
 
 	# games
 	url(r'^games/create/?$', games.create, name='games-create'),
