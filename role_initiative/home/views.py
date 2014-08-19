@@ -20,6 +20,7 @@ def home(request):
 
 			return render(request, 'home/home.html',{
 				'form' : form,
+				'games': games,
 				'rolled': rolled,
 				'total': total,
 				'button_text': button_text,
