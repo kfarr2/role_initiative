@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     'role_initiative.users',
     'role_initiative.files',
     'role_initiative.games',
+    'role_initiative.groups',
 )
 
 MIDDLEWARE_CLASSES = (
