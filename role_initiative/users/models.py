@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.auth.models import UserManager, AbstractBaseUser
 from django.core.exceptions import PermissionDenied
 
-# Create your models here.
 class User(AbstractBaseUser):
 	
-	id = models.AutoField(primary_key=True)
+	user_id = models.AutoField(primary_key=True)
+	username = models.CharField(max_length=255, unique=True)
 	email = models.EmailField(max_length=255, unique=True)
 	first_name = models.CharField(max_length=255)
 	last_name = models.CharField(max_length=255)

@@ -55,7 +55,7 @@ function listFiles(){
 $(document).ready(function(){
 	//initialize these DOM mofo's for the file upload
 	r.assignBrowse(document.getElementById("file"))
-	//r.assignDrop(document.getElementById("file"))
+	r.assignDrop(document.getElementById("files"))
 
 	// punch it, Chewy.
 	$('#submit').on("click", function(e){
@@ -68,4 +68,17 @@ $(document).ready(function(){
 		}
 	});
 
-})
+	$("#files").on("click", function(e){
+		$("#file").click();	
+	})
+
+	$("#files").on("click", ".remove-file", function(e){
+		e.stopPropagation();
+		var index = parseInt($(this).data("index"))
+		r.removeFile(r.files[index])
+		listFiles();
+	});
+});
+
+
+

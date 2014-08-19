@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+	{% for game in games %}
+	<table class="table table-striped">
+		<tr>{{ game.game_name }}</tr>
+		<tr>
+			<td>{{ game.game_description }}</td>
+		</tr>
+	</table>
+	{% endfor %}
+</div>
+{% endblock %}

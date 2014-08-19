@@ -9,7 +9,6 @@ from forms import FileForm
 
 #def list_(request):
 
-
 def store(request):
 	"""
 	This view recieves a chunck of a file and saves it. When all the chunks are
