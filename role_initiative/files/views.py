@@ -8,6 +8,8 @@ from models import File
 from forms import FileForm
 
 #def list_(request):
+def upload(request):
+	pass
 
 def store(request):
 	"""

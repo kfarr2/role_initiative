@@ -13,12 +13,7 @@ def games(request):
 	"""
 	Default game view
 	"""
-
-
-
-
-
-
+	pass
 
 def login(request):
 	"""
@@ -42,7 +37,6 @@ def login(request):
 	
 	return render(request, 'users/login.html', {
 		'form': form,	
-	
 	})
 
 def create(request):

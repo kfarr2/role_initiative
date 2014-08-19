@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 from role_initiative.home import views as home
 from role_initiative.featured_games import views as featured_games
 from role_initiative.users import views as users
+from role_initiative.games import views as games
 
 admin.autodiscover()
 
@@ -21,9 +22,8 @@ urlpatterns = patterns('',
 	url(r'^login/?$', users.login, name="users-login"),
 	url(r'^new_user/?$', users.create, name="users-create"),
 
-	# files
-
 	# games
+	url(r'^games/create/?$', games.create, name='games-create'),
 
 	# featured games
 	url(r'^featured_games/?$', featured_games.game_view, name="featured_games-list"),

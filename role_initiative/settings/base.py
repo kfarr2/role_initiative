@@ -37,7 +37,6 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['10.0.0.34']
 
 
-AUTH_USER_MODEL = 'auth.User'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
@@ -68,7 +67,7 @@ INSTALLED_APPS = (
     'role_initiative.users',
     'role_initiative.files',
     'role_initiative.games',
-    'role_initiative.groups',
+    'role_initiative.group',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -90,6 +89,7 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.CryptPasswordHasher',
 )
 
+AUTH_USER_MODEL = 'users.User'
 
 ROOT_URLCONF = 'role_initiative.urls'
 
