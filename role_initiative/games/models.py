@@ -13,7 +13,6 @@ class Game(models.Model):
 	name = models.CharField(max_length=255)
 	description = models.TextField()
 	type = models.CharField(max_length=255)
-	rulebook = models.ForeignKey(File)
 	date_posted = models.DateTimeField(auto_now_add=True)
 	created_by = models.ForeignKey(User)
 	rating = models.IntegerField()

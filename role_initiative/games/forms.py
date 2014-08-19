@@ -15,7 +15,6 @@ class GameForm(forms.ModelForm):
 			'name',
 			'description',
 			'type',
-			'rulebook',
 		)
 
 	def __init__(self, *args, **kwargs):

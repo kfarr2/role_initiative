@@ -42,9 +42,9 @@
 	<div class="col-md-5">
 		<h3><p>Featured Games</p></h3>
 		<ul class="list-group">
-		{% if game_list %}
-			{% for game in game_list %}
-				<a href="#"><li class="list-group-item">{{ game.name }}</li></a>
+		{% if games %}
+			{% for game in games %}
+				{% include "games/_game.html" %}
 			{% endfor %}
 		{% endif %}												
 		</ul>

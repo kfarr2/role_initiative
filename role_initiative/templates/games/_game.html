@@ -1,0 +1,19 @@
+
+<table class="table tale-condensed">
+	<tr>
+		<td>Name</td>
+		<td>Description</td>
+		<td>Type</td>
+		<td>Created by</td>
+		<td>Rating</td>
+	</tr>
+	{% for game in games %}
+		<tr>
+			<td>{{ game.name }}</td>
+			<td>{{ game.description }}</td>
+			<td>{{ game.type }}</td>
+			<td>{{ game.created_by }}</td>
+			<td>{{ game.rating }}</td>
+		</tr>
+	{% endfor %}
+</table>

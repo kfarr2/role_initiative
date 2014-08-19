@@ -2,12 +2,14 @@ import random
 from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponse, HttpResponseRedirect
+from role_initiative.games.models import Game
 from .models import DiceModel, RollButtonText
 from .forms import DiceForm
 
 
 def home(request):
 	button_text = RollButtonText.objects.order_by('?')[0]	
+	games = Game.objects.all()
 	if request.method == 'GET':
 		form = DiceForm(request.GET)
 		if form.is_valid():
@@ -24,7 +26,10 @@ def home(request):
 			})
 	else:
 		form = DiceForm()
+
+
 	return render(request, 'home/home.html',{
+		'games': games,
 		'form' : form,
 		'button_text': button_text,
 	})
