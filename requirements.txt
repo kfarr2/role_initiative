@@ -11,8 +11,15 @@ apache2==1.0
 argparse==1.2.1
 billiard==3.3.0.18
 celery==3.1.12
+coverage==3.7.1
 django-admin-bootstrapped==1.6.5
+django-cloak==0.1.3
+django-perms==0.0.7
+django-unfriendly==0.3
 docutils==0.11
+elasticmodels==0.0.8
+elasticsearch==0.4.5
+elasticutils==0.9.1
 importlib==1.0.3
 kombu==3.0.21
 mock==1.0.1
@@ -20,4 +27,5 @@ model-mommy==1.2.1
 pytz==2014.4
 requests==2.3.0
 six==1.3.0
+urllib3==1.9
 wsgiref==0.1.2

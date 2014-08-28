@@ -7,7 +7,7 @@ function getUUID(){
 
 // initialize the resumable file object
 var r = new Resumable({
-	target: "files/store",
+	target: "/files/store/",
 	testChunks: false,
 	maxChunkRetries: 3,
 	chunkRetryInterval: 1000,
@@ -48,14 +48,14 @@ function listFiles(){
 		html.push("<li><span data-index='" + i + "' class='remove-file glyphicon-remove'></span>" + r.files[i].fileName + "</li>")	
 	}
 	html.push("</ul>")
-	$('#files').html(html.join(""))
+	$('#dropbox').html(html.join(""))
 }
 
 
 $(document).ready(function(){
 	//initialize these DOM mofo's for the file upload
 	r.assignBrowse(document.getElementById("file"))
-	r.assignDrop(document.getElementById("files"))
+	r.assignDrop(document.getElementById("dropbox"))
 
 	// punch it, Chewy.
 	$('#submit').on("click", function(e){
@@ -68,11 +68,11 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#files").on("click", function(e){
+	$("#dropbox").on("click", function(e){
 		$("#file").click();	
 	})
 
-	$("#files").on("click", ".remove-file", function(e){
+	$("#dropbox").on("click", ".remove-file", function(e){
 		e.stopPropagation();
 		var index = parseInt($(this).data("index"))
 		r.removeFile(r.files[index])

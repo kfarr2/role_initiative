@@ -8,6 +8,12 @@ span {
 
 .well {
 	color: #000000;
+	margin: 10px;
+}
+
+.col-md-9 {
+	background-color: #333;
+	color: #ffffff;
 }
 
 .col-md-6 {
@@ -16,6 +22,16 @@ span {
 }
 
 .col-md-5 {
+	background-color: #00354c;
+	color: #ffffff;
+}
+
+.col-md-4 {
+	background-color: #00354c;
+	color: #ffffff;
+}
+
+.col-md-3 {
 	background-color: #00354c;
 	color: #ffffff;
 }
@@ -36,4 +52,12 @@ form {
 
 #user-welcome {
 	color: #ffffff;	
+}
+
+#dropbox {
+	background-color: #66a3ff;
+}
+
+#right-corner-button {
+	margin-top: -40px;
 }

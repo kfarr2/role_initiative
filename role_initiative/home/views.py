@@ -14,6 +14,7 @@ def home(request):
 		form = DiceForm(request.GET)
 		if form.is_valid():
 			rolled = rolling(form.cleaned_data['dice'], form.cleaned_data['sides'])
+			rolled.sort()
 			total = 0
 			for x in range(len(rolled)):
 				total += rolled[x]

@@ -40,10 +40,10 @@ ALLOWED_HOSTS = ['10.0.0.34']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 here = lambda *path: os.path.normpath(os.path.join(os.path.dirname(__file__), *path))
 ROOT = lambda *path: here("../../", *path)
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Files
 MAX_UPLOAD_SIZE = 50 * 2**20
@@ -60,9 +60,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pytz',
+	'elasticmodels',
+	'pytz',
     'south',
-    'role_initiative.home',
+    'celery',
+	'permissions',
+	'cloak',
+	'role_initiative.home',
     'role_initiative.featured_games',
     'role_initiative.users',
     'role_initiative.files',
@@ -123,6 +127,9 @@ STATIC_ROOT = ROOT("static")
 
 MEDIA_ROOT = ROOT("media")
 MEDIA_URL = '/media/'
+MEDIAFILES_DIRS = (
+	here("../../", "media")
+)
 
 TMP_ROOT = ROOT("tmp")
 

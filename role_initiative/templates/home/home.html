@@ -6,7 +6,7 @@
 <div class="container">
 	<div class="col-md-6" >
 	<br></br>
-		<form method="get">
+		<form method="get" role="form">
 			<div class="well">
 				<p><h2>Need dice? Don't got dice?</h2></p>
 				<p><h1>We got dice.</h1></p>
@@ -14,7 +14,7 @@
 				<table class="table table-condensed">
 					<tr>
 						<td>
-							<p><h4>Roll</h4></p><p>{{ form.dice }}</p>
+							<div class="form-group"><p><h4>Roll</h4></p><p>{{ form.dice }}</p></div>
 							<p><h4>D</h4></p><p>{{ form.sides }}</p>	
 						</td>
 						<td>
@@ -22,11 +22,11 @@
 						{% for roll in rolled %}
 							<strong>{{ roll }}</strong>, 
 						{% endfor %}
-
+						
 						{% if total %}
 							<h3>Total: <strong>{{ total }}</strong> </h3>
 						{% else %}
-							<h3>Roll!</h3>
+							<h3>Nothing!</h3>
 						{% endif %}
 						</td>
 					</tr>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-3">
+	<h3>Detail</h3>
+	<div class="well">
+		<strong>{{ file.name }}</strong>
+		<p>Uploaded by:
+		<br />{{ file.uploaded_by.email }}</p>
+	</div>
+</div>
+<div class="col-md-9">
+	<script type="text/javascript" src="http://mozilla.github.io/pdf.js/build/pdf.js"></script>
+	<h3>PDF</h3>
+	<div>
+		&nbsp; &nbsp;
+		<span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+	</div>
+	{% url %}
+	<iframe id="viewer" src="{{ MEDIA_URL }}{{ file.pk }}/{{ file.name }}" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
+</div>
+{% endblock %}

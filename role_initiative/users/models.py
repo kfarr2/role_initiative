@@ -51,16 +51,3 @@ class User(AbstractBaseUser):
 	def can_cloak_as(self, other_user):
 		return self.is_staff
 
-	def __getattr__(self, attr):
-		"""
-		Instead of creating a bunch of user.is_admin, user.is_uploader,
-		user.is_whatever convenience methods, just overload getattr to check
-		for user roles when the method name starts with "is_"
-		"""
-		role_names = set(role.lower() for role in UserRole.__dict__.keys())
-		# is this a role check?
-		if attr.startswith("is_") and attr[len("is_"):] in role_names:
-		    return getattr(UserRole, attr[len("is_"):].upper()) in self.roles
-
-		raise AttributeError("You tried to access the attribute '%s' on an instance of a User model. That attribute isn't defined" % attr)
-

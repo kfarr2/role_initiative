@@ -28,7 +28,7 @@ def _edit(request, game_id):
 		game = get_object_or_404(Game, pk=game_id)
 
 	if request.method == "POST":
-		form = GameForm(irequest.POST, instance=game)
+		form = GameForm(request.POST, instance=game)
 		if form.is_valid():
 			form.save(user=request.user)
 			return HttpResponseRedirect(reverse("games-detail", args=(file.pk,)))

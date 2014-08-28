@@ -3,23 +3,26 @@ import os
 from django.db import models
 from django.conf import settings
 from role_initiative.users.models import User
-from . import enums
+from enums import FileType, FileStatus
 
 class File(models.Model):
 	file_id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=255)
 	description = models.TextField()
 	file = models.FileField(upload_to=lambda *args, **kwargs: '')
+	type = models.IntegerField(choices=FileType)
+	status = models.IntegerField(choices=FileStatus)
 	uploaded_on = models.DateTimeField(auto_now_add=True)
 	edited_on = models.DateTimeField(auto_now=True)
 	tmp_path = models.CharField(max_length=255, unique=True)
 
-	uploaded_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+	uploaded_by = models.ForeignKey(User)
 
 	class Meta:
 		db_table = "file"
 		ordering = ["-uploaded_on"]
 
+	@classmethod
 	def sanitize_filename(cls, filename):
 		"""
 		Only allow safe characters (no slashes). Any filename that is
@@ -36,7 +39,7 @@ class File(models.Model):
 		return self._size
 
 	def directory(self):
-		return os.path.join(settings.MEDIA_ROOT, str(self.org_id), str(self.pk))
+		return os.path.join(settings.MEDIA_ROOT, str(self.pk))
 
 	def path_with_extension(self, ext):
 		return os.path.normpath(os.path.join(os.path.dirname(self.file.path), "file."+ ext))
