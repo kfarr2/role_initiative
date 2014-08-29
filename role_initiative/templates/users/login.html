@@ -2,15 +2,12 @@
 
 {% block content %}
 <div class="container">
-	<div class="panel panel-primary">
-		<div class="panel-body">
-			<form method="post" class="col-md-4">
-				{% csrf_token %}
-				{{ form.as_p }}
-				<input type='submit' class='btn btn-primary' value='Submit'/>
-			</form>
-		</div>
-	</div>
+	<form method="post" class="col-md-4">
+		{% csrf_token %}
+		<p id="form-label">Email:</p>{{ form.email }}
+		<p id="form-label">Password:</p>{{ form.password }}
+		<input type='submit' class='btn btn-primary' value='Submit'/>
+	</form>
 
 </div>
 {% endblock %}

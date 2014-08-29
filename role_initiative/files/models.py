@@ -38,6 +38,7 @@ class File(models.Model):
 			self._size = get_size(self.directory)
 		return self._size
 
+	@property
 	def directory(self):
 		return os.path.join(settings.MEDIA_ROOT, str(self.pk))
 
@@ -47,6 +48,16 @@ class File(models.Model):
 	def url_with_extension(self, ext):
 		return os.path.normpath(settings.MEDIA_URL + os.path.relpath(os.path.dirname(self.file.path), settings.MEDIA_ROOT) + "/file." + ext)
 	
+	@property
+	def pdf_urls(self):
+
+		if not self.file:
+			return []
+
+		return [
+			(self.url_with_extension("pdf"), "application/pdf"),        
+		]	
+
 
 	def __unicode__(self):
 		return "%s (%s)" % (self.name, FileType._choices[self.type][1])

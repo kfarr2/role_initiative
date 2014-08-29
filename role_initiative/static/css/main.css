@@ -28,7 +28,7 @@ span {
 
 .col-md-4 {
 	background-color: #00354c;
-	color: #ffffff;
+	color: #000;
 }
 
 .col-md-3 {
@@ -60,4 +60,13 @@ form {
 
 #right-corner-button {
 	margin-top: -40px;
+}
+
+iframe {
+	min-height: 700px;
+	width: 100%;
+}
+
+#form-label {
+	color: #fff;
 }

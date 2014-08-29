@@ -1,16 +1,18 @@
 {% extends "base.html" %}
-
 {% block content %}
 <div class="col-md-6">
 	<h3>List</h3>
 	<a  id="right-corner-button" href="{% url 'files-upload' %}" class="btn btn-default pull-right">Upload</a>
+	{% if files %}
 	{% for file in files %}
-		<a href="{% url 'files-detail' file.pk %}">
+		{% url 'files-detail' file.pk as file_url %}
+		<a href="{{ file_url }}">
 			<div class="well">
 				{{ file.name }}, {{ file.uploaded_by.email }}
 			</div>
 		</a>
 	{% endfor %}
+	{% endif %}
 </div>
 
 {% endblock %}

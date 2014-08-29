@@ -50,6 +50,28 @@ MAX_UPLOAD_SIZE = 50 * 2**20
 CHUNK_SIZE = 1 * 2**20
 ITEMS_PER_PAGE = 10
 
+ELASTIC_SEARCH_CONNECTION = {
+	"urls": ["http://localhost:9200/"],
+	"index": "role_initiative_dev",
+}
+
+ELASTIC_SEARCH_URL = "http://127.0.0.1:9200/"
+ELASTIC_SEARCH_SETTINGS = {
+	"settings": {
+		"analysis": {
+			"analyzer": {
+				"snowball": {
+					"type": "snowball",
+					"stopwords": "_none_"
+				}
+			}
+		}
+	}
+}
+
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+CELERY_ACKS_LATE = True
+CELERY_RESULT_BACKEND = 'amqp'
 
 # Application definition
 
@@ -66,6 +88,7 @@ INSTALLED_APPS = (
     'celery',
 	'permissions',
 	'cloak',
+	'unfriendly',
 	'role_initiative.home',
     'role_initiative.featured_games',
     'role_initiative.users',

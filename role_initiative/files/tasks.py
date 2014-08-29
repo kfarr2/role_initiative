@@ -9,11 +9,12 @@ import subprocess
 import datetime
 import mimetypes
 import hashlib
-
+from functools import partial
 from celery import shared_task
 from django.conf import settings
 from django.db import IntegrityError, transaction, DatabaseError
 from .enums import FileStatus, FileType, TEXT_FILE_MIME_TYPES
+from .models import File
 
 @shared_task
 def process_uploaded_file(total_number_of_chunks, file):
@@ -37,7 +38,6 @@ def process_uploaded_file(total_number_of_chunks, file):
 		chunk_path = os.path.join(file.tmp_path, str(i) + '.part')
 		shutil.copyfileobj(open(chunk_path, 'rb'), concatenated_file)
 
-	shutil.rmtree(file.tmp_path)
 	concatenated_file.close()
 	file.file = os.path.relpath(final_file_path, settings.MEDIA_ROOT)
 	file.status = FileStatus.FAILED
